@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatorApp.MainPage">
+
+    <ScrollView BackgroundColor="#000000">
+        <VerticalStackLayout
+        Padding="20,0"
+        Spacing="25">
+            <Label
+            x:Name="message"
+            Text="Dobrodošli"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Padding="0,30,0,0"/>
+            
+            <Label
+            x:Name="calculate"
+            Text=""
+            Margin="0,60,0,0"
+            HeightRequest="48"
+            FontSize="30"
+            TextColor="#b1b1b1"
+            HorizontalOptions="End"
+            FontAttributes="Bold"/>
+
+            <Label
+            x:Name="input"
+            Text=""
+            HeightRequest="70"
+            Margin="0,20,0,0"
+            FontSize="55"
+            TextColor="#dddcdc"
+            FontAttributes="Bold"
+            HorizontalOptions="End"/>
+            
+            <Grid ColumnSpacing="10" RowSpacing="10" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="80" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="80" />
+                </Grid.RowDefinitions>
+                
+                <Button
+                x:Name="c"
+                Text="C" 
+                Clicked="C"
+                Grid.Row="0" Grid.Column="0" 
+                Style="{StaticResource WhiteButton}"/>
+                
+                <Button
+                x:Name="del"
+                Text="DEL" 
+                Clicked="delete"
+                Grid.Row="0" Grid.Column="1"
+                Style="{StaticResource WhiteButton}"
+                FontSize="26"/>
+                
+                <Button
+                x:Name="percent"
+                Text="%" 
+                Clicked="operate"
+                Grid.Row="0" Grid.Column="2"
+                Style="{StaticResource WhiteButton}"/>
+                
+                <Button
+                x:Name="slash"
+                Text="/" 
+                Clicked="operate"
+                Grid.Row="0" Grid.Column="3"
+                Style="{StaticResource OrangeButton}"/>
+                
+                <Button
+                x:Name="seven"
+                Text="7" 
+                Clicked="InputNumber"
+                Grid.Row="1" Grid.Column="0"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="eight"
+                Text="8" 
+                Clicked="InputNumber"
+                Grid.Row="1" Grid.Column="1"
+                Style="{StaticResource GrayButton}"/>
+
+                <Button
+                x:Name="nine"
+                Text="9" 
+                Clicked="InputNumber"
+                Grid.Row="1" Grid.Column="2"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="x"
+                Text="*" 
+                Clicked="operate"
+                Grid.Row="1" Grid.Column="3"
+                Style="{StaticResource OrangeButton}"/>
+                
+                <Button
+                x:Name="four"
+                Text="4" 
+                Clicked="InputNumber"
+                Grid.Row="2" Grid.Column="0"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="five"
+                Text="5" 
+                Clicked="InputNumber"
+                Grid.Row="2" Grid.Column="1"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="six"
+                Text="6" 
+                Clicked="InputNumber"
+                Grid.Row="2" Grid.Column="2"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="minus"
+                Text="-" 
+                Clicked="operate"
+                Grid.Row="2" Grid.Column="3"
+                Style="{StaticResource OrangeButton}"/>
+                
+                <Button
+                x:Name="one"
+                Text="1" 
+                Clicked="InputNumber"
+                Grid.Row="3" Grid.Column="0"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="two"
+                Text="2" 
+                Clicked="InputNumber"
+                Grid.Row="3" Grid.Column="1"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="three"
+                Text="3" 
+                Clicked="InputNumber"
+                Grid.Row="3" Grid.Column="2"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="plus"
+                Text="+" 
+                Clicked="operate"
+                Grid.Row="3" Grid.Column="3"
+                Style="{StaticResource OrangeButton}"/>
+                
+                <Button
+                x:Name="zero"
+                Text="0" 
+                Clicked="InputNumber"
+                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                Style="{StaticResource GrayButton}"/>
+                
+                <Button
+                x:Name="dot"
+                Text="." 
+                Clicked="addDot"
+                Grid.Row="4" Grid.Column="2"
+                Style="{StaticResource GrayButton}"
+                />
+                
+                <Button
+                x:Name="equal"
+                Text="=" 
+                Clicked="operate"
+                Grid.Row="4" Grid.Column="3"
+                Style="{StaticResource OrangeButton}"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
