@@ -162,12 +162,19 @@
                 Clicked="operate"
                 Grid.Row="3" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
-                
+
+                <Button
+                x:Name="negation"
+                Text="+/-" 
+                Clicked="NegationNumber"
+                Grid.Row="4" Grid.Column="0" 
+                Style="{StaticResource GrayButton}"/>
+
                 <Button
                 x:Name="zero"
                 Text="0" 
                 Clicked="InputNumber"
-                Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
+                Grid.Row="4" Grid.Column="1"
                 Style="{StaticResource GrayButton}"/>
                 
                 <Button

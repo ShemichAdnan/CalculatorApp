@@ -77,6 +77,15 @@
                 input.Text += ",";
             }
         }
+
+        private void NegationNumber(object sender, EventArgs e)
+        {
+            if (input.Text!="")
+            {
+                input.Text = (double.Parse(input.Text) * -1).ToString();
+            }
+            
+        }
         private void add()
         {
             if (number1 != null && number2 != null && number1 != "" && number2 != "")
