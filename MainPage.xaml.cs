@@ -196,66 +196,17 @@
                 {
                     number2 = input.Text;
                 }
-                if (tempOperator == "+")
+
+                Calculation();
+                if (op != "=")
                 {
-                    Calculation();
-                    if (op != "=")
-                    {
-                        Execution();
-                    }
-                    else
-                    {
-                        calculate.Text = "";
-                    }
+                    Execution();
                 }
-                else if (tempOperator == "-")
+                else
                 {
-                    Calculation();
-                    if (op != "=")
-                    {
-                        Execution();
-                    }
-                    else
-                    {
-                        calculate.Text = "";
-                    }
+                    calculate.Text = "";
                 }
-                else if (tempOperator == "*")
-                {
-                    Calculation();
-                    if (op != "=")
-                    {
-                        Execution();
-                    }
-                    else
-                    {
-                        calculate.Text = "";
-                    }
-                }
-                else if (tempOperator == "/")
-                {
-                    Calculation();
-                    if (op != "=")
-                    {
-                        Execution();
-                    }
-                    else
-                    {
-                        calculate.Text = "";
-                    }
-                }
-                else if (tempOperator == "%")
-                {
-                    Calculation();
-                    if (op != "=")
-                    {
-                        Execution();
-                    }
-                    else
-                    {
-                        calculate.Text = "";
-                    }
-                }
+                
             }
         }
 
