@@ -15,7 +15,7 @@
             InitializeComponent();
 
         }
-        private void C(object sender, EventArgs e)
+        private void Clear(object sender, EventArgs e)
         {
             message.Text = "";
             calculate.Text = "";
@@ -25,18 +25,18 @@
             tempOperator = "";
             op = "";
         }
-        private void delete(object sender, EventArgs e)
+        private void Delete(object sender, EventArgs e)
         {
             message.Text = "";
             if (input.Text.Length != 0)
             {
                 input.Text = input.Text.Substring(0, input.Text.Length - 1);
             }
-            provjeraDuzine();
+            ProvjeraDuzine();
 
         }
 
-        private void provjeraDuzine()
+        private void ProvjeraDuzine()
         {
             if (input.Text.Length > 9)
             {
@@ -52,14 +52,14 @@
             message.Text = "";
             Button button = (Button)sender;
             int number = int.Parse(button.Text);
-            provjeraDuzine();
+            ProvjeraDuzine();
             if (input.Text.Length < 15)
             {
                 input.Text += number.ToString();
             }
         }
 
-        private void addDot(object sender, EventArgs e)
+        private void AddDot(object sender, EventArgs e)
         {
             message.Text = "";
             if (input.Text.Contains(","))
@@ -69,7 +69,7 @@
             }
             else
             {
-                provjeraDuzine();
+                ProvjeraDuzine();
                 if (input.Text.Length == 0)
                 {
                     input.Text += "0";
@@ -86,127 +86,11 @@
             }
             
         }
-        private void add()
+
+        
+        private void Calculation()
         {
-            if (number1 != null && number2 != null && number1 != "" && number2 != "")
-            {
-                double result = Convert.ToDouble(number1) + Convert.ToDouble(number2);
-
-
-                if (result > max || result < min)
-                {
-                    message.Text = "Previše velik / previše mal broj!";
-                    calculate.Text = "";
-                    input.Text = "";
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-                else
-                {
-                    if (result.ToString().Length > maxc)
-                    {
-                        string temp = result.ToString().Substring(0, 15);
-                        while (temp[temp.Length - 1] == '0')
-                        {
-                            temp = temp.Substring(0, temp.Length - 1);
-                        }
-                        input.Text = temp;
-                        provjeraDuzine();
-                    }
-                    else
-                    {
-                        input.Text = result.ToString();
-                        provjeraDuzine();
-                    }
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-            }
-        }
-
-
-        private void subtract()
-        {
-            if (number1 != null && number2 != null && number1 != "" && number2 != "")
-            {
-                double result = Convert.ToDouble(number1) - Convert.ToDouble(number2);
-
-
-                if (result > max || result < min)
-                {
-                    message.Text = "Previše velik / previše mal broj!";
-                    calculate.Text = "";
-                    input.Text = "";
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-                else
-                {
-                    if (result.ToString().Length > maxc)
-                    {
-                        string temp = result.ToString().Substring(0, 15);
-                        input.Text = temp;
-                        provjeraDuzine();
-                    }
-                    else
-                    {
-                        input.Text = result.ToString();
-                        provjeraDuzine();
-                    }
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-            }
-
-        }
-
-
-
-        private void multiply()
-        {
-            if (number1 != null && number2 != null && number1 != "" && number2 != "")
-            {
-                double result = Convert.ToDouble(number1) * Convert.ToDouble(number2);
-
-
-                if (result > max || result < min)
-                {
-
-                    message.Text = "Previše velik / previše mal broj!";
-                    calculate.Text = "";
-                    input.Text = "";
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-                else
-                {
-                    if (result.ToString().Length > maxc)
-                    {
-                        string temp = result.ToString().Substring(0, 15);
-                        input.Text = temp;
-                        provjeraDuzine();
-                    }
-                    else
-                    {
-                        input.Text = result.ToString();
-                        provjeraDuzine();
-                    }
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-            }
-        }
-
-
-        private void devide()
-        {
-            if (number2 == "0")
+            if (number2 == "0" && tempOperator == "/")
             {
                 message.Text = "Dijeljenje sa 0 nije moguce!";
                 calculate.Text = "";
@@ -217,43 +101,25 @@
             }
             else if (number1 != null && number2 != null && number1 != "" && number2 != "")
             {
-                double result = Convert.ToDouble(number1) / Convert.ToDouble(number2);
-
-
-                if (result > max || result < min)
+                double result;
+                if (tempOperator == "+")
                 {
-                    message.Text = "Previše velik / previše mal broj!";
-                    calculate.Text = "";
-                    input.Text = "";
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
-                }
-                else
+                    result = Convert.ToDouble(number1) + Convert.ToDouble(number2);
+                }else if(tempOperator == "-")
                 {
-                    if (result.ToString().Length > maxc)
-                    {
-                        string temp = result.ToString().Substring(0, 15);
-                        input.Text = temp;
-                        provjeraDuzine();
-                    }
-                    else
-                    {
-                        input.Text = result.ToString();
-                        provjeraDuzine();
-                    }
-                    number1 = "";
-                    number2 = "";
-                    tempOperator = "";
+                    result = Convert.ToDouble(number1) - Convert.ToDouble(number2);
+                }else if(tempOperator== "*")
+                {
+                    result = Convert.ToDouble(number1) * Convert.ToDouble(number2);
+                }else if(tempOperator == "/")
+                {
+                    result = Convert.ToDouble(number1) / Convert.ToDouble(number2);
+                }else
+                {
+                    result = (Convert.ToDouble(number1) / 100) * Convert.ToDouble(number2);
                 }
-            }
-        }
-        private void percentage()
-        {
-            if (number1 != null && number2 != null && number1 != "" && number2 != "")
-            {
-                double result = (Convert.ToDouble(number1) / 100) * Convert.ToDouble(number2);
 
+               
 
                 if (result > max || result < min)
                 {
@@ -270,12 +136,12 @@
                     {
                         string temp = result.ToString().Substring(0, 15);
                         input.Text = temp;
-                        provjeraDuzine();
+                        ProvjeraDuzine();
                     }
                     else
                     {
                         input.Text = result.ToString();
-                        provjeraDuzine();
+                        ProvjeraDuzine();
                     }
                     number1 = "";
                     number2 = "";
@@ -283,14 +149,13 @@
                 }
             }
         }
-        private void operate(object sender, EventArgs e)
+        private void Operate(object sender, EventArgs e)
         {
             Button button = (Button)sender;
             op = button.Text;
-
-            izvrsavanje();
+            Execution();
         }
-        private void izvrsavanje()
+        private void Execution()
         {
             message.Text = "";
             if (string.IsNullOrEmpty(input.Text))
@@ -333,10 +198,10 @@
                 }
                 if (tempOperator == "+")
                 {
-                    add();
+                    Calculation();
                     if (op != "=")
                     {
-                        izvrsavanje();
+                        Execution();
                     }
                     else
                     {
@@ -345,10 +210,10 @@
                 }
                 else if (tempOperator == "-")
                 {
-                    subtract();
+                    Calculation();
                     if (op != "=")
                     {
-                        izvrsavanje();
+                        Execution();
                     }
                     else
                     {
@@ -357,10 +222,10 @@
                 }
                 else if (tempOperator == "*")
                 {
-                    multiply();
+                    Calculation();
                     if (op != "=")
                     {
-                        izvrsavanje();
+                        Execution();
                     }
                     else
                     {
@@ -369,10 +234,10 @@
                 }
                 else if (tempOperator == "/")
                 {
-                    devide();
+                    Calculation();
                     if (op != "=")
                     {
-                        izvrsavanje();
+                        Execution();
                     }
                     else
                     {
@@ -381,10 +246,10 @@
                 }
                 else if (tempOperator == "%")
                 {
-                    percentage();
+                    Calculation();
                     if (op != "=")
                     {
-                        izvrsavanje();
+                        Execution();
                     }
                     else
                     {

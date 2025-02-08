@@ -53,14 +53,14 @@
                 <Button
                 x:Name="c"
                 Text="C" 
-                Clicked="C"
+                Clicked="Clear"
                 Grid.Row="0" Grid.Column="0" 
                 Style="{StaticResource WhiteButton}"/>
                 
                 <Button
                 x:Name="del"
                 Text="DEL" 
-                Clicked="delete"
+                Clicked="Delete"
                 Grid.Row="0" Grid.Column="1"
                 Style="{StaticResource WhiteButton}"
                 FontSize="26"/>
@@ -68,14 +68,14 @@
                 <Button
                 x:Name="percent"
                 Text="%" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="0" Grid.Column="2"
                 Style="{StaticResource WhiteButton}"/>
                 
                 <Button
                 x:Name="slash"
                 Text="/" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="0" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
                 
@@ -103,7 +103,7 @@
                 <Button
                 x:Name="x"
                 Text="*" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="1" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
                 
@@ -131,7 +131,7 @@
                 <Button
                 x:Name="minus"
                 Text="-" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="2" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
                 
@@ -159,7 +159,7 @@
                 <Button
                 x:Name="plus"
                 Text="+" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="3" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
 
@@ -180,7 +180,7 @@
                 <Button
                 x:Name="dot"
                 Text="." 
-                Clicked="addDot"
+                Clicked="AddDot"
                 Grid.Row="4" Grid.Column="2"
                 Style="{StaticResource GrayButton}"
                 />
@@ -188,7 +188,7 @@
                 <Button
                 x:Name="equal"
                 Text="=" 
-                Clicked="operate"
+                Clicked="Operate"
                 Grid.Row="4" Grid.Column="3"
                 Style="{StaticResource OrangeButton}"/>
             </Grid>
